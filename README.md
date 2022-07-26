@@ -1,3 +1,14 @@
+### 25/07/2022
+
+- trang Home chứa tất cả danh sách các sinh viên
+- khi click vào Hash của từng sinh viên sẽ vào trang profile
+- trong trang profile thì hiển thị Hash và list các hình ảnh Certificate
+  ( hiện tại thì chưa có hình ảnh Certificate do API chưa cung cấp đủ)
+- khi click vào Certificate thì link tới trang chi tiết của Certificate đó
+  có 2 cách:
+- 1 là dùng [[...slug]]
+- 2 là tạo 1 folder [profile], rồi index.js là của [id], rồi [slug] là của token certificate (chosen)
+
 This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
 
 ## Getting Started
