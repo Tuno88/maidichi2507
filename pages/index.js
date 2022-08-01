@@ -1,8 +1,9 @@
 import Head from "next/head";
 import Image from "next/image";
-import styles from "../styles/Home.module.css";
+// import styled from "styled-components";
 import { useEffect, useState } from "react";
 import Link from "next/link";
+import avatar01 from "../public/images/avatar03.jpg";
 export default function Home() {
   const [nfts, setNfts] = useState([]);
   useEffect(() => {
@@ -10,7 +11,9 @@ export default function Home() {
   }, []);
 
   async function loadNFTs() {
-    const response = await fetch("http://localhost:3000/api/hello");
+    const response = await fetch(
+      "https://portal-staging.funix.edu.vn/certificates/nfts"
+    );
     const data = await response.json();
     const studentHash = await Promise.all(
       data.map((d) => {
@@ -23,19 +26,20 @@ export default function Home() {
   }
   console.log("nfts", nfts);
   return (
-    <div>
-      <h1>List of Certificates</h1>
-      {nfts.map(
-        (nft, i) => (
-          <div key={i}>
-            <Link key={i} href={`/profile/${nft}`}>{`${nft}`}</Link>
-          </div>
-        )
-        // <Link key={i} href={`/profile/${nft.hash}`}>
-        //   {`${nft.hash}`}aa
-        // </Link>;
-        // <p>{`${nft.hash}`}</p>;
-      )}
+    <div className="border-solid border-2 border-red-200 m-auto w-3/4 h-screen shadow-2xl">
+      <h1 className="text-xl text-indigo-900 font-bold">
+        List ofaaaaaa Students
+      </h1>
+      fdsfs
+      {nfts.map((nft, i) => (
+        <div key={i}>
+          <Link key={i} href={`/profile/${nft}`}>
+            <div className="ml-5 mt-10">
+              {i} - {`${nft}`}
+            </div>
+          </Link>
+        </div>
+      ))}
     </div>
   );
 }
